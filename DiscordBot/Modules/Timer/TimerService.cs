@@ -18,7 +18,7 @@
         {
             Console.WriteLine("Cleared");
             string jsonstring = "[{\"id\":\"null\",\"card\":\"null\",\"usedTime\":0,\"botMessagesId\":[{\"guildId\":1,\"messageId\":1,\"channelId\":1}]}]";
-            File.WriteAllText("JsonFiles/tarotcardsused.json", jsonstring);
+            File.WriteAllText("Modules/Tarot/JsonFiles/tarotcardsused.json", jsonstring);
             await Timer();
         }
     }

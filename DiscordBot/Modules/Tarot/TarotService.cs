@@ -11,7 +11,7 @@ namespace DiscordBot.Modules.Tarot
 
         public TarotService() 
         {
-            using (var s = new StreamReader("JsonFiles/tarotcards.json"))
+            using (var s = new StreamReader("Modules/Tarot/JsonFiles/tarotcards.json"))
             {
                 var jsonString = s.ReadToEnd();
                 try
@@ -52,7 +52,7 @@ namespace DiscordBot.Modules.Tarot
         public List<TarotCardsUsed> GetAllUsers()
         {
             List<TarotCardsUsed> usedCards = new List<TarotCardsUsed>();
-            using (StreamReader r = new StreamReader("JsonFiles/tarotcardsused.json"))
+            using (StreamReader r = new StreamReader("Modules/Tarot/JsonFiles/tarotcardsused.json"))
             {
                 var json = r.ReadToEnd();
                 var jarray = JArray.Parse(json);
@@ -114,7 +114,7 @@ namespace DiscordBot.Modules.Tarot
             }
             // save all users
             string jsonf = JsonConvert.SerializeObject(usedCards.ToArray());
-            System.IO.File.WriteAllText("JsonFiles/tarotcardsused.json", jsonf);
+            System.IO.File.WriteAllText("Modules/Tarot/JsonFiles/tarotcardsused.json", jsonf);
         }
 
         public TarotCardsUsed? CheckIfUserUsedCard(string userId)

@@ -13,7 +13,7 @@ namespace DiscordBot.Modules.Config
         List<ConfigModel> _configModels;
         public ConfigBotService()
         {
-            using (var s = new StreamReader("JsonFiles/configbot.json"))
+            using (var s = new StreamReader("Modules/Config/JsonFiles/configbot.json"))
             {
                 var jsonString = s.ReadToEnd();
                 try
@@ -61,11 +61,9 @@ namespace DiscordBot.Modules.Config
 
         public void SaveConfig(ulong? birthdayChannelId, ulong? guildId)
         {
-            List<ConfigModel> configList = new List<ConfigModel>();
-            configList = _configModels;
+            List<ConfigModel> configList = _configModels;
             Console.WriteLine(guildId);
-            ConfigModel config = new ConfigModel();
-            config = CheckIfGuildIsInConfig(guildId);
+            ConfigModel config = CheckIfGuildIsInConfig(guildId);
             if (config == null)
             {
                 config = new ConfigModel();
@@ -78,7 +76,7 @@ namespace DiscordBot.Modules.Config
                 config.BirthdayChannelId = (ulong)birthdayChannelId;
             }
             string jsonf = JsonConvert.SerializeObject(configList.ToArray());
-            File.WriteAllText("JsonFiles/configbot.json", jsonf);
+            File.WriteAllText("Modules/Config/JsonFiles/configbot.json", jsonf);
         }
 
         public ConfigModel? CheckIfGuildIsInConfig(ulong? guildId)
