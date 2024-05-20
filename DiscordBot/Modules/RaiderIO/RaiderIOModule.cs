@@ -1,5 +1,7 @@
 ﻿using Discord.Commands;
 using DiscordBot.Modules.RaiderIO.Models;
+using SixLabors.ImageSharp;
+using SixLabors.ImageSharp.PixelFormats;
 
 namespace DiscordBot.Modules.RaiderIO
 {
@@ -18,7 +20,8 @@ namespace DiscordBot.Modules.RaiderIO
             }
             else
             {
-                await RespondAsync($"{character.Name} - {character.MythicPlusScoresBySeason[0].Scores.All}");
+                await RespondWithFileAsync(filePath: Directory.GetCurrentDirectory() + $"/Sheets/{character.Name}.jpg");
+                File.Delete(Directory.GetCurrentDirectory() + $"/Sheets/{character.Name}.jpg");
             }
         }
     }
