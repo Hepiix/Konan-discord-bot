@@ -1,4 +1,4 @@
-# 🔮 Discord Tarot & Anime Bot
+# 🔮 Konan Discord Bot
 
 This is a Discord bot built in **C# .NET** using the **Discord.NET** library. It offers several fun and useful features, from daily tarot card readings to tracking anime episodes and generating detailed World of Warcraft character cards! The bot also uses **ImageSharp** for image processing.
 
